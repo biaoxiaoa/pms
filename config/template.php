@@ -32,4 +32,11 @@ return [
     'taglib_begin' => '{',
     // 标签库标签结束标记
     'taglib_end'   => '}',
+    'tpl_replace_string' => [
+        'jquery_js' => '/static/lib/jquery/jquery.min.js',
+        'layui_js'  => '/static/lib/layui/layui.js',
+        'layui_css' => '/static/lib/layui/css/layui.css',
+        'font_css'  => '/static/lib/layui/font/font.css',
+        
+    ]
 ];
