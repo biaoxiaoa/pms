@@ -15,6 +15,10 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
+Route::get('admin', 'login/index/admin_login');
+Route::get('captcha', 'login/index/captcha');
+
+
 return [
 
 ];

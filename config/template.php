@@ -37,6 +37,6 @@ return [
         'layui_js'  => '/static/lib/layui/layui.js',
         'layui_css' => '/static/lib/layui/css/layui.css',
         'font_css'  => '/static/lib/layui/font/font.css',
-        
+        'login_css'  => '/static/css/login.css',
     ]
 ];
