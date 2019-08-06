@@ -1,7 +1,7 @@
 <?php
 return [
     //验证码字符集合       默认 略
-    'codeSet'     =>    '1234567890abcdefghjklmnqrst',
+    'codeSet'     =>    '1234567890',
 
     //验证码过期时间（s）   默认：1800
     // 'expire'     =>    1800,

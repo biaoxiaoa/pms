@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="login_css">
+    
 </head>
 {/block}
 {block name="title"}后台登录{/block}
@@ -26,14 +27,14 @@
             <div class="layui-form">
                 <div class="layui-col-sm12 layui-col-md12">
                     <div class="layui-form-item">
-                        <input type="text" name="userName" lay-verify="required" autocomplete="off" placeholder="账号"
-                            class="layui-input">
+                        <input type="text" name="userName" lay-verify="required|username" autocomplete="off"
+                            placeholder="账号" class="layui-input">
                         <i class="layui-icon layui-icon-username logo_icon"></i>
                     </div>
                 </div>
                 <div class="layui-col-sm12 layui-col-md12">
                     <div class="layui-form-item">
-                        <input type="password" name="nuse" lay-verify="required|pass" autocomplete="off"
+                        <input type="password" name="nuse" lay-verify="required|password" autocomplete="off"
                             placeholder="密码" class="layui-input">
                         <i class="layui-icon layui-icon-password logo_icon"></i>
                     </div>
@@ -53,15 +54,16 @@
                     </div>
                 </div>
                 <div class="layui-col-sm12 layui-col-md12">
-						<button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo1">立即登录</button>
-					</div>
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="login">立即登录</button>
+                </div>
             </div>
         </div>
     </div>
     <div class="layui-row">
-			<div class="layui-col-sm12 layui-col-md12 zyl_center zyl_mar_01">
-				© 2019 - 简约后台登陆界面 || 简约后台登陆界面版权所有
-			</div>
-		</div>
+        <div class="layui-col-sm12 layui-col-md12 zyl_center zyl_mar_01">
+            © 2019 - 简约后台登陆界面 || 简约后台登陆界面版权所有
+        </div>
+    </div>
+    <script src="login_js"></script>
 </body>
 {/block}
