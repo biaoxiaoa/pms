@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="login_css">
-    
+
 </head>
 {/block}
 {block name="title"}后台登录{/block}
@@ -14,7 +14,7 @@
 <body>
     <div class="layui-fluid">
         <div class="layui-row layui-col-space15">
-            <div class="layui-col-sm12 layui-col-md12 zyl_mar_01">
+            <div class="layui-col-sm12 layui-col-md12">
                 <blockquote class="layui-elem-quote">简约后台登陆界面</blockquote>
             </div>
         </div>
@@ -27,15 +27,15 @@
             <div class="layui-form">
                 <div class="layui-col-sm12 layui-col-md12">
                     <div class="layui-form-item">
-                        <input type="text" name="userName" lay-verify="required|username" autocomplete="off"
-                            placeholder="账号" class="layui-input">
+                        <input type="text" name="account" lay-verify="required|username" autocomplete="off"
+                            placeholder="账号" class="layui-input" maxlength="12">
                         <i class="layui-icon layui-icon-username logo_icon"></i>
                     </div>
                 </div>
                 <div class="layui-col-sm12 layui-col-md12">
                     <div class="layui-form-item">
                         <input type="password" name="nuse" lay-verify="required|password" autocomplete="off"
-                            placeholder="密码" class="layui-input">
+                            placeholder="密码" class="layui-input" maxlength="12">
                         <i class="layui-icon layui-icon-password logo_icon"></i>
                     </div>
                 </div>
@@ -43,8 +43,8 @@
                     <div class="layui-row">
                         <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
                             <div class="layui-form-item">
-                                <input type="text" name="vercode" id="vercode" lay-verify="required|vercodes"
-                                    autocomplete="off" placeholder="验证码" class="layui-input" maxlength="4">
+                                <input type="text" name="checkcode" id="vercode" lay-verify="required|vercodes"
+                                    autocomplete="off" placeholder="验证码" class="layui-input" maxlength="5">
                                 <i class="layui-icon layui-icon-vercode logo_icon"></i>
                             </div>
                         </div>
@@ -53,15 +53,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="layui-col-sm12 layui-col-md12">
-                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="login">立即登录</button>
+                {:token()}
+                <div class="layui-col-sm12 layui-col-md12 login_button">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="login" width="90%">立即登录</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="layui-row">
-        <div class="layui-col-sm12 layui-col-md12 zyl_center zyl_mar_01">
-            © 2019 - 简约后台登陆界面 || 简约后台登陆界面版权所有
+    <div class="login_back">
+        
+            <!-- <img src="/static/image/back.jpg" alt=""> -->
+    
+    </div>
+    <div class="layui-row ">
+        <div class="layui-col-sm12 layui-col-md12 login_footer">
+           © 2019 - 简约后台登陆界面 || 简约后台登陆界面版权所有
+            
         </div>
     </div>
     <script src="login_js"></script>

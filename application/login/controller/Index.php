@@ -1,7 +1,11 @@
 <?php
 namespace app\login\controller;
 use think\Controller;
+use think\Request;
 use think\captcha\Captcha;
+
+use behavior\LoginBehavior;
+
 class Index extends Controller
 {
     public function index()
@@ -17,5 +21,18 @@ class Index extends Controller
     {
         $captcha = new Captcha();
         return $captcha->entry();
+    }
+    public function list()
+    {
+        $model = new User();
+        return json($model->select());
+    }
+    public function login()
+    {
+        $info = input('post.');
+        $request = new Request();
+        $Ip= $request->ip(0,false);
+        $info['login_ip']=$Ip;
+        return LoginBehavior::login_check($info);
     }
 }
