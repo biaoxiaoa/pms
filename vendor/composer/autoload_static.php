@@ -20,6 +20,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         array (
             'app\\' => 4,
         ),
+        'W' => 
+        array (
+            'Workerman\\' => 10,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -34,6 +38,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         'app\\' => 
         array (
             0 => __DIR__ . '/../..' . '/application',
+        ),
+        'Workerman\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/workerman',
         ),
     );
 
