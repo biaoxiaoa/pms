@@ -1,5 +1,6 @@
 <?php
 namespace Behavior;
+use think\Session;
 use app\login\model\User as UserModel;
 use app\login\validate\User as UserValidate;
 use Services\JsonServices as xaJson;
@@ -41,5 +42,12 @@ class LoginBehavior{
         $lookupRes->save();
 
         return xaJson::PMSSuccessResponse('1000','登录成功');
+    }
+
+    static public function hasActiveUser()
+    {
+        $session = new Session();
+        
+        return $session->has('userId') && $session->has('userInfo');
     }
 }
