@@ -137,7 +137,7 @@
 			, errorFn = function () {
 				throw new Error(lang.Illegal_operation);
 			}
-			, imgUrl = '/static/x-admin/lib/layui/extend/loading/images/loading/loading'
+			, imgUrl = '/static/lib/layui/extend/loading/images/loading/loading'
 			, imgSrcArr = [
 				imgUrl + '.gif',
 				imgUrl + '-bars.gif'
@@ -209,7 +209,7 @@
 							}
 						}
 					});
-	
+					
 					return this;
 				},
 				

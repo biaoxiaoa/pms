@@ -1,8 +1,13 @@
+function verify_code() {
+    $('#captchaImg').attr('src','/captcha');
+    $('#vercode').value="";   
+}
 $(function () {
 layui.extend({
     loading:'/static/lib/layui/extend/loading/loading'
 }).use(['form','loading'],function(){
     var form = layui.form;
+    var loading = layui.loading;
     form.verify({
         username:function(value,item){
             var length = new RegExp(/^[\S]{3,12}$/);
@@ -30,8 +35,37 @@ layui.extend({
             }
         }
     })
-    form.on('submit(login)',function(){
-        console.log('1111')
+    form.on('submit(login)',function(data){
+        $(window).loading('show',{
+                "opacity": 0.7,
+                "imgSrc": 9,
+                "text": "正在登陆...",
+                "textCss": {
+                    "color": "#666"
+                }});
+        $.ajax({
+            type:'post',
+            url:'/login_check',
+            data:data.field,
+                success:function(response){
+                    $(window).loading('hide');
+
+                    if(response.code!=1000){
+                        layer.msg(response.msg,{icon:2,anim:6});
+                    }else{
+                        console.log(response);
+                        window.location.href='/index.php/index/index'
+                    }
+                    verify_code();
+                },
+                error:function(error){
+                    console.log(error);
+                    layer.msg("正在抢修网络....",{icon:2,anim:6});
+                    verify_code();
+                }
+        })
     })
+    
 })
+    
 })

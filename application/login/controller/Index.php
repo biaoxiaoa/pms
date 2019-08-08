@@ -33,6 +33,7 @@ class Index extends Controller
         $request = new Request();
         $Ip= $request->ip(0,false);
         $info['login_ip']=$Ip;
+        sleep(1);
         return LoginBehavior::login_check($info);
     }
 }

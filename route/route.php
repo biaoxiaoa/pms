@@ -17,8 +17,7 @@ Route::get('hello/:name', 'index/hello');
 
 Route::get('admin', 'login/index/admin_login');
 Route::get('captcha', 'login/index/captcha');
-
-
+Route::rule('/login_check','login/index/login','POST');
 return [
 
 ];
