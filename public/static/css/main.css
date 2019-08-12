@@ -1,0 +1,29 @@
+.main-layout-side {
+    width: 200px;
+    height: 100%;
+    background: #444c63;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    z-index: 1;
+    transition: left 0.3s;
+}
+.main-layout-side .layui-nav .iconfont {
+    padding-right: 10px;
+    font-size: 18px;
+    color: #8f94a1;
+    position: relative;
+    top: 2px;
+}
+.main-layout-side .layui-nav-tree .layui-nav-child a .l-line {
+    width: 12px;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 30px;
+    background: url(/static/image/l-line.png) left center no-repeat;
+}

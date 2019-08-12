@@ -6,6 +6,6 @@ class Index extends AuthBase
 {
     public function index()
     {
-        return $this->error('请登录...','/admin');    
+        return $this->fetch();    
     }
 }

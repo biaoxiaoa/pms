@@ -10,6 +10,7 @@ class AuthBase extends Controller
     ];
     public function login_status()
     {
+        
         if(LoginBehavior::hasActiveUser() == false){
             return $this->error('请登录...','/admin');
             exit;

@@ -35,9 +35,11 @@ return [
     'tpl_replace_string' => [
         'jquery_js' => '/static/lib/jquery/jquery.min.js',
         'layui_js'  => '/static/lib/layui/layui.js',
-        'login_js'  => '/static/js/login.js',
         'layui_css' => '/static/lib/layui/css/layui.css',
         'font_css'  => '/static/lib/layui/font/font.css',
+        'login_js'  => '/static/js/login.js',
         'login_css'  => '/static/css/login.css',
+        'main_css'  => '/static/css/main.css',
+        'main_js'  => '/static/js/main.js',
     ]
 ];

@@ -53,13 +53,11 @@ layui.extend({
                     if(response.code!=1000){
                         layer.msg(response.msg,{icon:2,anim:6});
                     }else{
-                        console.log(response);
                         window.location.href='/index.php/index/index'
                     }
                     verify_code();
                 },
                 error:function(error){
-                    console.log(error);
                     layer.msg("正在抢修网络....",{icon:2,anim:6});
                     verify_code();
                 }

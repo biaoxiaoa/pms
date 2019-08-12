@@ -40,6 +40,9 @@ class LoginBehavior{
         $lookupRes->login_time = time::getNowTime(0);
         $lookupRes->login_ip = $info['login_ip'];
         $lookupRes->save();
+        $session = new Session();
+        $session->set('userId',$lookupRes->ID);
+        $session->set('userInfo',$lookupRes);
 
         return xaJson::PMSSuccessResponse('1000','登录成功');
     }
