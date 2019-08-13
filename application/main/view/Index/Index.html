@@ -4,57 +4,261 @@
 
 <head>
     <link rel="stylesheet" href="main_css">
-
+    <link rel="stylesheet" href="animate_css">
+    <link rel="stylesheet" href="font-awesome_css">
+    <link rel="stylesheet" href="winui_css">
 </head>
 {/block}
 {block name="title"}PMS管理系统{/block}
 {block name="body"}
 {__block__}
+<body>
+  <!-- 桌面 -->
+  <div class="winui-desktop">
 
-<body class="layui-layout-body">
-    <div class="main-layout-side">
-            <ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
-                    <li class="layui-nav-item layui-nav-itemed">
-                      <a href="javascript:;"><i class="iconfont">&#xe653;</i>菜单管理<span class="layui-nav-more"></span></a>
-                      <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-url="menu1.html" data-id="1" data-text="后台菜单"><span class="l-line"></span>后台菜单</a></dd>
-                        <dd><a href="javascript:;" data-url="menu2.html" data-id="2" data-text="前台菜单"><span class="l-line"></span>前台菜单</a></dd>
-                      </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>内容管理<span class="layui-nav-more"></span></a>
-                      <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-url="article-list.html" data-id="3" data-text="文章管理"><span class="l-line"></span>文章管理</a></dd>
-                        <dd><a href="javascript:;" data-url="danye-list.html" data-id="9" data-text="单页管理"><span class="l-line"></span>单页管理</a></dd>
-                      </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>推荐位管理</a>
-                    </li>
-                     <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>友情链接</a>
-                    </li>
-                     <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>RBAC</a>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;" data-url="email.html" data-id="4" data-text="邮件系统"><i class="iconfont"></i>邮件系统</a>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>生成静态</a>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;"><i class="iconfont"></i>备份管理</a>
-                    </li>
-                    <li class="layui-nav-item">
-                      <a href="javascript:;" data-url="admin-info.html" data-id="5" data-text="个人信息"><i class="iconfont"></i>个人信息</a>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" data-url="system.html" data-id="6" data-text="系统设置"><i class="iconfont"></i>系统设置</a>
-                    </li>
-                  <span class="layui-nav-bar"></span></ul>
-    </div>
+  </div>
+
+  <!-- 开始菜单 -->
+  <div class="winui-start sp layui-hide">
+      <!-- 左边设置 -->
+      <div class="winui-start-left">
+          <div class="winui-start-item bottom" data-text="个人中心"><i class="fa fa-user"></i></div>
+          <div class="winui-start-item winui-start-individuation bottom" data-text="主题设置"><i class="fa fa-cog"></i></div>
+          <div class="winui-start-item bottom logout" data-text="注销登录"><i class="fa fa-power-off"></i></div>
+      </div>
+      <!-- 中间导航 -->
+      <div class="winui-start-center">
+          <div class="layui-side-scroll">
+              <ul class="winui-menu layui-nav layui-nav-tree" lay-filter="winuimenu"></ul>
+          </div>
+      </div>
+      <!-- 右边磁贴 -->
+      <div class="winui-start-right">
+          <div class="layui-side-scroll">
+              <div class="winui-nav-tile">
+                  <div class="winui-tilebox">
+                      <div class="winui-tilebox-head">组件示例</div>
+                      <div class="winui-tilebox-body">
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-adjust"></i>
+                              <span>按钮</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-circle-o-notch"></i>
+                              <span>进度条</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-list-alt"></i>
+                              <span>表单</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-window-maximize"></i>
+                              <span>面板</span>
+                          </div>
+                          <div class="winui-tile winui-tile-long">
+                              <p style="font-size:30px;font-family:'STKaiti';">Tab</p>
+                              <span>选项卡</span>
+                          </div>
+                          <div class="winui-tile winui-tile-long">
+                              <i class="fa fa-fw fa-spin fa-spinner"></i>
+                              <span>流加载</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-spin fa-refresh"></i>
+                              <span>动画</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-fw fa-calendar"></i>
+                              <span>日期时间</span>
+                          </div>
+                          <div class="winui-tile winui-tile-long">
+                              <i class="fa fa-fw fa-clock-o"></i>
+                              <span>时间线</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="winui-tilebox">
+                      <div class="winui-tilebox-head">占位菜单</div>
+                      <div class="winui-tilebox-body">
+                          <div class="winui-tile winui-tile-long">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <img src="/static/image/winadmin/logo_100.png" />
+                              <span>自定义图片</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <img src="/static/image/winadmin/qzone_32.png" />
+                              <span>QQ空间</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-photo fa-fw"></i>
+                              <span>图片</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="winui-tilebox">
+                      <div class="winui-tilebox-head">占位菜单</div>
+                      <div class="winui-tilebox-body">
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                          <div class="winui-tile winui-tile-normal">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="winui-tilebox">
+                      <div class="winui-tilebox-head">占位菜单</div>
+                      <div class="winui-tilebox-body">
+                          <div class="winui-tile winui-tile-long">
+                              <i class="fa fa-file-text"></i>
+                              <span>文章管理</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- 任务栏 -->
+  <div class="winui-taskbar">
+      <!-- 开始菜单触发按钮 -->
+      <div class="winui-taskbar-start sp"><i class="fa fa-windows"></i></div>
+      <!-- 任务项 -->
+      <ul class="winui-taskbar-task"></ul>
+      <!-- 任务栏时间 -->
+      <div class="winui-taskbar-time"></div>
+      <!-- 控制中心 -->
+      <div class="winui-taskbar-console sp">
+          <i class="fa fa-comment-o"></i>
+      </div>
+      <!-- 显示桌面 -->
+      <div class="winui-taskbar-desktop">
+      </div>
+  </div>
+
+  <!--控制中心-->
+  <div class="winui-console layui-hide slideOutRight sp">
+      <h1>最新通知</h1>
+      <div class="winui-message">
+          <div class="layui-side-scroll">
+              <div class="winui-message-item">
+                  <h2>马云发来一条信息</h2>
+                  <div class="content">
+                      今天晚上我请客！
+                  </div>
+              </div>
+              <div class="winui-message-item">
+                  <h2>马化腾有问题请教</h2>
+                  <div class="content">
+                      QQ如何发送语音？
+                  </div>
+              </div>
+              <div class="winui-message-item">
+                  <h2>你有一条新留言</h2>
+                  <div class="content">
+                      牛逼
+                  </div>
+              </div>
+              <div class="winui-message-item">
+                  <h2>好友验证</h2>
+                  <div class="content">
+                      高圆圆请求加你为好友
+                  </div>
+              </div>
+              <div class="winui-message-item">
+                  <h2>群系统消息</h2>
+                  <div class="content">
+                      李彦宏邀请你加入百度AI技术交流群
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="winui-shortcut">
+          <h2><span class="extend-switch sp">展开</span></h2>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+          <div class="winui-shortcut-item">
+              <i class="fa fa-cog"></i>
+              <span>设置</span>
+          </div>
+      </div>
+  </div>
     <script src="main_js"></script>
-    <script src="/static/js/element.js"></script>
 </body>
 {/block}

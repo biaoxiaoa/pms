@@ -36,10 +36,14 @@ return [
         'jquery_js' => '/static/lib/jquery/jquery.min.js',
         'layui_js'  => '/static/lib/layui/layui.js',
         'layui_css' => '/static/lib/layui/css/layui.css',
+        'animate_css' => '/static/lib/layui/extend/winui/lib/animate/animate.min.css',
+        'font-awesome_css' => '/static/lib/layui/extend/winui/lib/font-awesome-4.7.0/css/font-awesome.min.css',
+        'winui_css' => '/static/lib/layui/extend/winui/css/winui.css',
         'font_css'  => '/static/lib/layui/font/font.css',
         'login_js'  => '/static/js/login.js',
         'login_css'  => '/static/css/login.css',
         'main_css'  => '/static/css/main.css',
         'main_js'  => '/static/js/main.js',
+
     ]
 ];
