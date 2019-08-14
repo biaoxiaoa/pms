@@ -3,7 +3,7 @@
   "message": "成功",
   "data": [
     {
-      "title": "主题",
+      "title": "主题1",
       "pageURL": "theme",
       "name": "主题",
       "icon": "fa-television",
@@ -13,7 +13,7 @@
       "id": 1
     },
     {
-      "title": "打赏作者",
+      "title": "打赏作者1",
       "pageURL": "/home/reward",
       "name": "打赏作者",
       "icon": "fa-qrcode",

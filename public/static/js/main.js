@@ -38,7 +38,11 @@ layui.config({
                 lockBgSrc: '/static/image/winadmin/bg_04.jpg'
             },  //如果本地配置为空则给默认值
             desktop: {
-                options: {},    //可以为{}  默认 请求 json/desktopmenu.json
+                options: {
+                    url: '/index.php/set/menu/test',
+                    method: 'get',
+                    // data: {  }
+                },    //可以为{}  默认 请求 json/desktopmenu.json
                 done: function (desktopApp) {
                     desktopApp.ondblclick(function (id, elem) {
                         OpenWindow(elem);
@@ -84,8 +88,8 @@ layui.config({
                         }],
                         item1: function (id, elem) {
                             //设置回调
-                            console.log(id);
-                            console.log(elem);
+                            // console.log(id);
+                            // console.log(elem);
                         },
                         item2: function (id, elem) {
                             //关闭回调
@@ -133,6 +137,7 @@ layui.config({
         }
 
         var content;
+        
         if (type === 1) {
             $.ajax({
                 type: 'get',

@@ -44,6 +44,6 @@ return [
         'login_css'  => '/static/css/login.css',
         'main_css'  => '/static/css/main.css',
         'main_js'  => '/static/js/main.js',
-
+        'menu_js'  => '/static/js/menu.js',
     ]
 ];
