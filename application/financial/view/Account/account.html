@@ -1,0 +1,27 @@
+{extend name="../public/template/template.html"}
+{block name="head"}
+{__block__}
+
+<head>
+    <link rel="stylesheet" href="font-awesome_css">
+    <link rel="stylesheet" href="winui_css">
+
+</head>
+{/block}
+{block name="title"}账户管理{/block}
+{block name="body"}
+{__block__}
+
+<body>
+    <div class="winui-toolbar">
+        <div class="winui-tool">
+            <button id="reloadTable" class="winui-toolbtn"><i class="fa fa-refresh" aria-hidden="true"></i>刷新数据</button>
+            <button id="addAccount" class="winui-toolbtn"><i class="fa fa-plus" aria-hidden="true"></i>新增账户</button>
+            <button id="editAccount" class="winui-toolbtn"><i class="fa fa-pencil" aria-hidden="true"></i>编辑账户</button>
+            <button id="deleteAccount" class="winui-toolbtn"><i class="fa fa-trash" aria-hidden="true"></i>删除账户</button>
+        </div>
+        <table id="list" lay-filter="list"></table>
+    </div>
+    <script src="account_js"></script>
+</body>
+{/block}
