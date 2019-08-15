@@ -43,7 +43,9 @@ return [
         'login_js'  => '/static/js/login.js',
         'login_css'  => '/static/css/login.css',
         'main_css'  => '/static/css/main.css',
+        'account_css'  => '/static/css/account.css',
         'main_js'  => '/static/js/main.js',
         'menu_js'  => '/static/js/menu.js',
+        'account_js'  => '/static/js/account.js',
     ]
 ];

@@ -17,7 +17,12 @@ Route::get('hello/:name', 'index/hello');
 
 Route::get('admin', 'login/index/admin_login');
 Route::get('captcha', 'login/index/captcha');
+Route::get('account_add', 'financial/Account/add_account');
 Route::rule('/login_check','login/index/login','POST');
+
+
+
+
 return [
 
 ];

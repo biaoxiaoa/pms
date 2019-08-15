@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost:8889
--- 生成日期： 2019-08-15 16:57:43
+-- 生成日期： 2019-08-15 17:50:29
 -- 服务器版本： 5.7.25
 -- PHP 版本： 7.1.26
 
@@ -13,6 +13,20 @@ SET time_zone = "+00:00";
 --
 -- 数据库： `pms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pms_account`
+--
+
+CREATE TABLE `pms_account` (
+  `ID` int(11) NOT NULL COMMENT 'ID',
+  `name` varchar(10) NOT NULL COMMENT '账户名称',
+  `number` varchar(180) DEFAULT NULL COMMENT '账户号码',
+  `remainlines` float DEFAULT NULL COMMENT '账户额度',
+  `secret` varchar(4) DEFAULT NULL COMMENT '账户检验码'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -41,15 +55,8 @@ CREATE TABLE `pms_menu` (
 --
 
 INSERT INTO `pms_menu` (`id`, `title`, `name`, `icon`, `module`, `controller`, `action`, `status`, `desk_show`, `parment_ID`, `maxOpen`, `openType`, `pageURL`) VALUES
-(3, '菜单设置1', '菜单设置1', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(4, '菜单设置2', '菜单设置2', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(5, '菜单设置3', '菜单设置3', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(6, '菜单设置4', '菜单设置4', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(7, '菜单设置5', '菜单设置5', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(8, '菜单设置6', '菜单设置6', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(9, '菜单设置7', '菜单设置7', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(17, '菜单设置8', '菜单设置8', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index'),
-(18, '菜单设置9', '菜单设置9', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index');
+(2, '账户设置', '账户设置', 'fa-list', 'financial', 'Account', 'Index', 0, 1, 0, -1, 2, '/account_add'),
+(3, '菜单设置1', '菜单设置1', 'fa-list', 'Set', 'Menu', 'Index', 0, 1, 0, -1, 2, '/index.php/Set/Menu/Index');
 
 -- --------------------------------------------------------
 
@@ -81,6 +88,13 @@ INSERT INTO `pms_user` (`ID`, `account`, `password`, `nick_name`, `salt`, `login
 --
 
 --
+-- 表的索引 `pms_account`
+--
+ALTER TABLE `pms_account`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
 -- 表的索引 `pms_menu`
 --
 ALTER TABLE `pms_menu`
@@ -96,6 +110,12 @@ ALTER TABLE `pms_user`
 --
 -- 在导出的表使用AUTO_INCREMENT
 --
+
+--
+-- 使用表AUTO_INCREMENT `pms_account`
+--
+ALTER TABLE `pms_account`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID';
 
 --
 -- 使用表AUTO_INCREMENT `pms_menu`
