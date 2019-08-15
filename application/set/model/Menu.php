@@ -2,6 +2,18 @@
 namespace app\set\model;
 use app\common\model\Base;
 class Menu extends Base{
+
+    public static function init()
+    {
+        self::event('after_write', function ($menu) {
+           if((!empty($menu->module))&(!empty($menu->controller))&(!empty($menu->action))){
+                $menu->pageURL = '/'+$menu->module+'/'+$menu->controller+'/'+$menu->action;
+                $menu->save();
+                return true;
+           }
+        });
+    }
+
     /**
      * 获取菜单列表
      */
@@ -10,13 +22,24 @@ class Menu extends Base{
         $model = new Menu();
         return $model->select();
     }
+
+    static public function menu_model()
+    {
+        $model = new Menu();
+        return $model;
+    }
+
+
     static public function desk_list()
     {
         $model = Menu::where('desk_show','1');
         return $model->select();
     }
 
-
+    static public function menu_delete($ids)
+    {
+        return Menu::destroy($ids);
+    }
 
     public function getStatusAttr($value)
     {

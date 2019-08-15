@@ -224,7 +224,7 @@
                 //绑定右下角显示桌面点击事件
                 common.resetClick('.winui-taskbar-desktop', call.desktopClick);
                 //任务栏右下角显示时间
-                othis.sysTime('.winui-taskbar-time', '<p>!HH:!mm</p><p>!yyyy-!M-!d</p>');
+                othis.sysTime('.winui-taskbar-time', '<p>!HH:!mm:!ss</p><p>!yyyy-!M-!d</p>');
                 //自适应
                 $(window).on('resize', common.locaApp);
                 //初始化完毕回调

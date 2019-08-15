@@ -5,29 +5,29 @@ layui.config({
     window: 'js/winui.window',
     desktop: 'js/winui.desktop',
     start: 'js/winui.start',
-    helper: 'js/winui.helper'
-}).define(['window', 'desktop', 'start', 'helper'], function (exports) {
+    // helper: 'js/winui.helper'
+}).define(['window', 'desktop', 'start'], function (exports) {
     var $ = layui.jquery;
 
     $(function () {
-        winui.window.msg('Welcome To WinAdmin', {
-            time: 4500,
-            offset: '40px',
-            btn: ['点击进入全屏'],
-            btnAlign: 'c',
-            yes: function (index) {
-                winui.fullScreen(document.documentElement);
-                layer.close(index);
-            }
-        });
+        // winui.window.msg('Welcome To WinAdmin', {
+        //     time: 4500,
+        //     offset: '40px',
+        //     btn: ['点击进入全屏'],
+        //     btnAlign: 'c',
+        //     yes: function (index) {
+        //         winui.fullScreen(document.documentElement);
+        //         layer.close(index);
+        //     }
+        // });
 
-        winui.window.open({
-            id: '公告',
-            type: 1,
-            title: '演示公告',
-            content: '<p style="padding:20px;">多数设置本地存储，清除浏览器缓存即失效。<br/><br/>Github Star，谢谢各位！<br/><br/>特色很多，如：<span style="color:#FF5722">桌面助手，主题设置</span>，慢慢参观</p>',
-            area: ['400px', '400px']
-        });
+        // winui.window.open({
+        //     id: '公告',
+        //     type: 1,
+        //     title: '演示公告',
+        //     content: '<p style="padding:20px;">多数设置本地存储，清除浏览器缓存即失效。<br/><br/>Github Star，谢谢各位！<br/><br/>特色很多，如：<span style="color:#FF5722">桌面助手，主题设置</span>，慢慢参观</p>',
+        //     area: ['400px', '400px']
+        // });
 
         winui.config({
             settings: layui.data('winui').settings || {
@@ -215,7 +215,7 @@ layui.config({
             }
         });
     }
-
+/*
     //扩展桌面助手工具
     winui.helper.addTool([{
         tips: '锁屏',
@@ -237,7 +237,7 @@ layui.config({
         click: function (e) {
             layer.msg('这个是自定义的工具栏', { zIndex: layer.zIndex });
         }
-    }]);
+    }]);*/
 
     exports('index', {});
 });

@@ -56,7 +56,7 @@
       "title": "不落阁",
       "pageURL": "http://www.lyblogs.cn",
       "name": "作者博客",
-      "icon": "http://www.lyblogs.cn/public/static/image/winadmin/Global/Logo_40.png",
+      "icon": "fa-user-circle-o",
       "openType": 2,
       "extend": false,
       "childs": null,
