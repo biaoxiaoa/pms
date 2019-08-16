@@ -5,9 +5,10 @@ function verify_code() {
 $(function () {
 layui.extend({
     loading:'/static/lib/layui/extend/loading/loading'
-}).use(['form','loading'],function(){
+}).use(['form','loading','layer'],function(){
     var form = layui.form;
     var loading = layui.loading;
+    var layer = layui.layer;
     form.verify({
         username:function(value,item){
             var length = new RegExp(/^[\S]{3,12}$/);
@@ -36,29 +37,34 @@ layui.extend({
         }
     })
     form.on('submit(login)',function(data){
-        $(window).loading('show',{
-                "opacity": 0.7,
-                "imgSrc": 9,
-                "text": "正在登陆...",
-                "textCss": {
-                    "color": "#666"
-                }});
+        var index = layer.load(2, {type:3,shade: [0.4,'#DCDCDC']});
+        $("#login").attr('disabled',true);
+        // $(window).loading('show',{
+        //         "opacity": 0.7,
+        //         "imgSrc": 9,
+        //         "text": "正在登陆...",
+        //         "textCss": {
+        //             "color": "#666"
+        //         }});
         $.ajax({
             type:'post',
             url:'/login_check',
             data:data.field,
                 success:function(response){
-                    $(window).loading('hide');
-
+                    // $(window).loading('hide');
+                    layer.close(index);
                     if(response.code!=1000){
                         layer.msg(response.msg,{icon:2,anim:6});
                     }else{
-                        window.location.href='/index.php/index/index'
+                        window.location.href='/main'
                     }
+                    $("#login").removeAttr("disabled");
                     verify_code();
                 },
                 error:function(error){
+                    layer.close(index);
                     layer.msg("正在抢修网络....",{icon:2,anim:6});
+                    $("#login").removeAttr("disabled");
                     verify_code();
                 }
         })

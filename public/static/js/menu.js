@@ -2,7 +2,7 @@ layui.use(['table'], function () {
     var table = layui.table;
     table.render({
         elem: '#list',
-        url: '/index.php/set/menu/list',
+        url: '/menu_list',
         page: true,
         cols: [[ //表头
             { type: 'checkbox', fixed: 'left' },

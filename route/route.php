@@ -17,8 +17,11 @@ Route::get('hello/:name', 'index/hello');
 
 Route::get('admin', 'login/index/admin_login');
 Route::get('captcha', 'login/index/captcha');
-Route::get('account_add', 'financial/Account/add_account');
+Route::get('account_add', 'financial/Account/add_account');//消费账户添加界面
+Route::get('account', 'financial/Account/Index');//消费账户列表界面
+Route::get('menu_list', 'set/menu/list');//菜单列表
 Route::rule('/login_check','login/index/login','POST');
+Route::rule('/submit_add_account','financial/Account/submit_add_account','POST');//添加账户提交
 
 
 

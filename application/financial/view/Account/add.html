@@ -17,23 +17,33 @@
         <div class="layui-form-item">
             <label class="layui-form-label">账户名称</label>
             <div class="layui-input-block">
-                <input type="text" name="name" lay-verify="require" placeholder="请输入账户名称(该项不可为空)" autocomplete="off"
+                <input type="text" name="name" lay-verify="required|name" placeholder="请输入账户名称(该项不可为空)" autocomplete="off"
                     class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">账户号码</label>
             <div class="layui-input-block">
-                <input type="text" name="number" lay-verify="number" placeholder="请输入账户号码(无账户号码时，可不填写)"
+                <input type="text" name="number" lay-verify="numbers" placeholder="请输入账户号码(无账户号码时，可不填写)"
                     autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">账户额度</label>
             <div class="layui-input-block">
-                <input type="text" name="remainlines" lay-verify="number" placeholder="请输入账户额度(可不填)" autocomplete="off"
+                <input type="text" name="remainlines" lay-verify="remain" placeholder="请输入账户额度(可不填)" autocomplete="off"
                     class="layui-input">
             </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">账户检验码</label>
+            <div class="layui-input-block">
+                <input type="text" name="secret" lay-verify="secret" placeholder="请输入账户校验码(可不填)" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn layui-btn-fluid" id="add" lay-submit lay-filter="add" width="90%">立即登录</button>
         </div>
     </div>
     <script src="account_js"></script>
