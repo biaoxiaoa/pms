@@ -80,7 +80,8 @@ class QrcodeServer
      * @return array
      */
     public function generateImg($file_name) {
-        $file_path = $file_name . DIRECTORY_SEPARATOR . uniqid() . '.' . self::WRITE_NAME;
+        $name = DIRECTORY_SEPARATOR . uniqid() . '.' . self::WRITE_NAME;
+        $file_path = $file_name . $name;
 
         if (!file_exists($file_name)) {
             mkdir($file_name, 0777, true);
@@ -91,6 +92,7 @@ class QrcodeServer
             $data = [
                 'url' => $file_path,
                 'ext' => self::WRITE_NAME,
+                'name' => $name,
             ];
             return ['success' => true, 'message' => 'write qrimg success', 'data' => $data];
         } catch (\Exception $e) {
