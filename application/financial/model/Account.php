@@ -19,4 +19,22 @@ class Account extends Base{
         $model = Account::where('name',$name)->find();
         return $model;
     }
+    static public function account_model()
+    {
+        $model = new Account();
+        return $model;
+    }
+    static public function list()
+    {
+        $model = new Account();
+        return $model->select();
+    }
+    static public function accountWithID($id)
+    {
+        if(empty($id)){
+            return false;
+        }
+        $model = Account::where('ID',$id)->find();
+        return $model; 
+    }
 }

@@ -4,7 +4,7 @@ use Services\JsonServices as xaJson;
 use app\financial\model\Account as account_model;
 use Services\QrcodeServer;
 class AccountBehavior{
-    static private $public_key = "-----BEGIN PUBLIC KEY-----\r\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQChLFJ50zwM8r3bIXE2n+7y+pHqotbnFLgu5MqDDjsE6JDIVy5jgFzaXZIgZgrwPk0glU3Lf1uiLlGl1FQ4kjmXuJmorKLJQW7Vb9mALiQJAv2lj7yPOIxqIln5LCsSs88/Wou5TkywX4/iq6Z86/SAAXtUusaIaeus3qXIv8xUvwIDAQAB\r\n-----END PUBLIC KEY-----";
+    static private $public_key = "-----BEGIN PUBLIC KEY-----\r\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCwiuQmko5nKf0SCzKmSVLZcDXfwKMhVmfw9mqvIS1iDDyq0ep4pZIF2VhU5W8yVbD1zrA9sL1GTtNKNi/vpWklUeMFAtoXmsU1ILQVNeSRrZUvRIQ0LWuJyPpvfKsQ7IOSA8QyB3b7qbhJVKi5ov6e9hqRwp2nsopcJO4BCiKjhQIDAQAB\r\n-----END PUBLIC KEY-----";
 
     static public function submit_add($info)
     {
@@ -15,22 +15,51 @@ class AccountBehavior{
         if(!empty($account)){
             return xaJson::PMSFailResponse(2004,'账户名已经存在');
         }
+        $pu_key = openssl_pkey_get_public(self::$public_key);
+
         if(!empty($info['number'])){
-            $pu_key = openssl_pkey_get_public(self::$public_key);
             $encrypted_number = "" ;
-            $encrypted_money = "";
-            $encrypted_secret = "";
             openssl_public_encrypt($info['number'],$encrypted_number,$pu_key);
+            $encrypted_number = base64_encode($encrypted_number);
+            $info['number']= $encrypted_number; 
+            // $res = self::QRCode($encrypted_number);
+            // if($res['success']=true){
+            //     $data = $res['data'];
+            //     $url = $data['url'];
+            //     $number_img = str_replace('.','',$url);
+            //     $number_img = str_replace('png','.png',$number_img);
+            //     $info['number_img'] = $number_img;
+            // }
+        }
+        if(!empty($info['remainlines'])){
+            $encrypted_money = "";
             openssl_public_encrypt($info['remainlines'],$encrypted_money,$pu_key);
-            openssl_public_encrypt($info['secret'],$encrypted_secret,$pu_key);
-            $info['number']= $encrypted_number;  
+            $encrypted_money = base64_encode($encrypted_money);
             $info['remainlines']= $encrypted_money;
+            // $res = self::QRCode($encrypted_money);
+            // if($res['success']=true){
+            //     $data = $res['data'];
+            //     $url = $data['url'];
+            //     $remainlines_img = str_replace('.','',$url);
+            //     $remainlines_img = str_replace('png','.png',$remainlines_img);
+            //     $info['remainlines_img'] = $remainlines_img;
+            // }
+        }
+        if(!empty($info['secret'])){
+            $encrypted_secret = "";
+            openssl_public_encrypt($info['secret'],$encrypted_secret,$pu_key);
+            $encrypted_secret = base64_encode($encrypted_secret);
             $info['secret']= $encrypted_secret;
+            // $res = self::QRCode($encrypted_secret);
+            // if($res['success']=true){
+            //     $data = $res['data'];
+            //     $url = $data['url'];
+            //     $secret_img = str_replace('.','',$url);
+            //     $secret_img = str_replace('png','.png',$secret_img);
+
+            //     $info['secret_img'] = $secret_img;
+            // }
         }
-        if(!empty($info['number'])){
-            
-        }
-        
         $res =account_model::add($info);
         if($res==false|empty($res)){
             return xaJson::PMSFailResponse(2004,'账户新增失败');
@@ -38,11 +67,76 @@ class AccountBehavior{
             return xaJson::PMSSuccessResponse(2000,'账户新增成功');
         }
     }
-    public function QRCode($content)
+    static public function account_limit_list($page=1,$limit=10)
+    {
+        $model = account_model::account_model();
+        $data = account_model::list();
+        $back['code'] = 0;
+        $back['msg']='请求成功';
+        $back['count']=count($data);
+        $back['data'] = $model->limit(($limit)*($page-1),$limit)->select();
+        return json($back);  
+    }
+    static public function account_imgsrc($id,$type)
+    {
+        $model = account_model::accountWithID($id);
+        $url = "";
+        switch ($type) {
+            case 'number':
+            $url = $model->number_img;
+            if(empty($url)){
+                $res = AccountBehavior::qrCode($model->number);
+                if($res['success']=true){
+                   $data = $res['data'];
+                   $url = $data['url'];
+                   $number_img = str_replace('.','',$url);
+                   $number_img = str_replace('png','.png',$number_img);
+                   $model->number_img = $number_img;
+                   $model->save();
+                   $url = $number_img;
+                }
+            }
+                break;
+            case 'money':
+            $url = $model->remainlines_img;
+            if(empty($url)){
+                $res = AccountBehavior::qrCode($model->remainlines);
+                if($res['success']=true){
+                   $data = $res['data'];
+                   $url = $data['url'];
+                   $remainlines_img = str_replace('.','',$url);
+                   $remainlines_img = str_replace('png','.png',$remainlines_img);
+                   $model->remainlines_img = $remainlines_img;
+                   $model->save();
+                   $url = $remainlines_img;
+                }
+            }
+            break;
+            case 'secret':
+            $url = $model->secret_img;
+            if(empty($url)){
+                $res = AccountBehavior::qrCode($model->secret);
+                if($res['success']=true){
+                   $data = $res['data'];
+                   $url = $data['url'];
+                   $secret_img = str_replace('.','',$url);
+                   $secret_img = str_replace('png','.png',$secret_img);
+                   $model->secret_img = $secret_img;
+                   $model->save();
+                   $url = $secret_img;
+                }
+            }
+            default:
+                # code...
+                break;
+        }
+        return $url;
+    }
+    static public function QRCode($content)
     {
         $config = [
             'title'         => true,
-            'title_content' => '扫描二维码',
+            'title_content' => '请扫描二维码，查看内容',
             'logo'          => false,
         ];
 
