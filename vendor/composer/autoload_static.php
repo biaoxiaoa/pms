@@ -13,11 +13,13 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'a9ed0d27b5a698798a89181429f162c5' => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib/Common/customFunctions.php',
         '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
+        'ffc1d7141d4fcbaeb47a6929f0811ed1' => __DIR__ . '/..' . '/topthink/think-worker/src/command.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
+            'think\\worker\\' => 13,
             'think\\composer\\' => 15,
             'think\\captcha\\' => 14,
         ),
@@ -28,6 +30,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         'Z' => 
         array (
             'Zxing\\' => 6,
+        ),
+        'W' => 
+        array (
+            'Workerman\\' => 10,
         ),
         'S' => 
         array (
@@ -45,6 +51,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         array (
             'MyCLabs\\Enum\\' => 13,
         ),
+        'G' => 
+        array (
+            'GatewayWorker\\' => 14,
+        ),
         'E' => 
         array (
             'Endroid\\QrCode\\' => 15,
@@ -61,6 +71,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
     );
 
     public static $prefixDirsPsr4 = array (
+        'think\\worker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topthink/think-worker/src',
+        ),
         'think\\composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-installer/src',
@@ -76,6 +90,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         'Zxing\\' => 
         array (
             0 => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib',
+        ),
+        'Workerman\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/workerman',
         ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
@@ -116,6 +134,10 @@ class ComposerStaticInit81f9db2ac7ccc78bd949dca1e0fc5ce0
         'MyCLabs\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
+        ),
+        'GatewayWorker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/gateway-worker/src',
         ),
         'Endroid\\QrCode\\' => 
         array (
